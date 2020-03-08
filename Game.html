@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>  
+<html>  
+  
+<head>  
+    <title>  
+        Game
+    </title> 
+    <style>
+        .boxed {
+  border: 1px solid blueviolet ;
+            width : 500px;
+            text-align: center;
+            margin: auto;
+            background-color: aliceblue;
+}
+        
+        input[type=text] {
+  border: 2px solid blueviolet;
+  border-radius: 4px;
+    width: 25%;
+  height: 25px;
+  padding: 12px 20px;
+}
+.button {
+  background-color: blueviolet; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+    border-radius: 12px;
+  border: 2px solid blueviolet;
+}
+
+.button1:hover {
+  background-color: blueviolet;
+  color: white;
+}
+       
+
+    </style>
+        
+</head> 
+  
+<body style = "text-align:center;">  
+     <div class = "boxed"> 
+    <h1 style = "color:blueviolet;">  
+        TYPE the T9 code 
+    </h1>  
+      
+    <p id = "info" style =  
+        "font-size: 15px; font-weight: bold;">  
+    </p> 
+    <br>
+    <br>
+    <br>
+      <form id = "form1" >
+          
+    <input type = "button" class = "button button1" value = "GET WORD " id = "button" onclick = "display()"  ><br>
+       
+       <p id = "word" style =  
+        "font-size: 24px; font-weight: bold; color: blueviolet; "></p> 
+          
+    </form>
+      <form id = "form2" >
+       <input type = "text" id = "t9" name = "T9Code">  <br><br>
+    <input type = "button" value = "CHECK " class=" button button1" id = "button" onclick = "check_Fun()"  ><br>  <br>
+        
+    </form>
+    
+   
+    
+      <p id = "result" style =  
+        "font-size: 24px; font-weight: bold; color: blueviolet;">  
+    </p>  
+    </div>
+    <script>  
+        var val;
+        var info = document.getElementById('info');  
+        var word = document.getElementById('word');  
+         var result = document.getElementById('result');  
+        var arr = ["thread", "repeat", 
+                "invite", "dapper","ultra","flavor","plot","silk","blink","shaky","quiet","amuse","road","haunt","lock","unique","change","sharp","instrument"]; 
+         
+       info.innerHTML = "Click on the button to start " 
+               + "the game.<br><br>"; 
+          
+        function display() { 
+           val  = Math.floor(Math.random() * arr.length);
+            word.innerHTML =  
+                arr[val]; 
+            
+                
+            
+        } 
+        function check_Fun()
+        {
+             var t9 = code(arr[val]);
+            if(document.getElementById('t9').value == t9)
+                result.innerHTML = "GOT the Right one 😀";
+            else
+                 result.innerHTML = "Try again! 😅 "  ;
+        }
+        function code(str)
+        {
+            
+           var n = str.length;
+            res = "";
+            for(var i = 0;i<n;i++)
+                res = res + chartodig(str.charAt(i));
+            return res;
+                
+            
+        }
+                function chartodig(c)
+            {
+                if(c == 'a' || c == 'b' || c== 'c')
+                    return 2;
+                else if(c == 'e' || c == 'f' || c == 'd')
+                    return 3;
+                else if(c== 'h' || c == 'i' || c== 'g')
+                    return 4;
+                else if(c== 'j' || c== 'k' || c== 'l')
+                    return 5;
+                else if(c=='m' || c== 'n' || c=='o')
+                    return 6;
+                else if(c== 'p' || c == 'q' || c == 'r' || c== 's')
+                    return 7;
+                else if(c== 't' || c == 'u' || c =='v')
+                    return 8;
+                else if(c== 'w' || c== 'x' || c== 'y' || c=='z')
+                    return 9;
+                    
+                
+            }
+    </script> 
+    
+</body>  
+  
+</html>
